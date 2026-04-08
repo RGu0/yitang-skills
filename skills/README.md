@@ -2,7 +2,7 @@
 
 这个目录在 `meta` 仓库中的职责是“登记和索引”，不是长期承载所有 skill 的主代码仓库。
 
-## Incubating
+## Registered
 
 ### `yitang-course-capture`
 
@@ -13,20 +13,19 @@
 [/Users/ruiguo/Documents/0. AI/yitang-course-capture](/Users/ruiguo/Documents/0.%20AI/yitang-course-capture)
 
 定位：
-当前已经在工作区中创建了独立仓库骨架。`meta` 仓库里的目录继续作为过渡期孵化副本存在。
+当前已经完成独立仓库拆分。`meta` 仓库里的同名目录只保留为只读占位符。
 
 用途：
 从 `yitang.top` 课程页面抓取内容，重组为结构化 Markdown、课程讲义风格文档，以及基于课程内容生成可复用 AI prompt/spec。
 
-当前进度：
-1. 已创建独立目录
-2. 已初始化独立 git 仓库
-3. 已补 `README.md`、`tests/`、`examples/`
+仓库：
+1. GitHub: `git@github.com:RGu0/yitang-course-capture.git`
+2. Codeup: `git@codeup.aliyun.com:69d5ce22ad0a337b92d94581/Agent-skills/yitang-course-capture.git`
 
 建议下一步：
-1. 在独立仓库中完成首个提交
-2. 连接 GitHub / Codeup 远端
-3. 决定何时删除或冻结 `meta` 仓库中的孵化副本
+1. 后续开发只在独立仓库中进行
+2. 为独立仓库补真实 `examples/` 和自动化 `tests/`
+3. 新 skill 直接按独立仓库模式创建
 
 ## Planned
 

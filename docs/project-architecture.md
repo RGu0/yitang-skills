@@ -44,7 +44,7 @@ workspace/
 
 ### `skills/<skill-name>/`
 
-只作为过渡期的本地孵化目录使用。一个 skill 一旦稳定，应该迁移成独立 repo。
+默认不再承载真实实现。若存在，通常只作为只读占位目录，指向已经拆分出去的独立 repo。
 
 ## 为什么要改成 meta 仓库
 
@@ -80,6 +80,6 @@ workspace/
 3. 单独初始化 git 仓库并连接远端
 4. 只在本仓库的 [skills/README.md](/Users/ruiguo/Documents/0.%20AI/yitang-skills/skills/README.md) 中登记
 
-## 当前过渡状态
+## 当前状态
 
-`yitang-course-capture` 目前仍保留在本仓库中，作为第一个 skill 的本地孵化副本。它的长期目标是迁移为独立仓库，而不是继续与其他未来 skill 共用同一个 git 历史。
+`yitang-course-capture` 已经拆分为独立仓库。`meta` 仓库中仅保留一个只读占位目录，用于索引和迁移提示。

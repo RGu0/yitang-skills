@@ -1,4 +1,0 @@
-version: 1
-display_name: Yitang Course Capture
-short_description: Capture and structure yitang.top course pages into Markdown
-default_prompt: Extract, analyze, and rewrite course content from a yitang.top page into structured Markdown, using Safari browser-assisted capture when the page is client-rendered, login-gated, or redirected into Feishu.
