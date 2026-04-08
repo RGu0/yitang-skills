@@ -9,16 +9,24 @@
 本地路径：
 [skills/yitang-course-capture](/Users/ruiguo/Documents/0.%20AI/yitang-skills/skills/yitang-course-capture)
 
+独立仓库工作区路径：
+[/Users/ruiguo/Documents/0. AI/yitang-course-capture](/Users/ruiguo/Documents/0.%20AI/yitang-course-capture)
+
 定位：
-当前仍在 `meta` 仓库中作为孵化副本存在，后续应拆分为独立 repo。
+当前已经在工作区中创建了独立仓库骨架。`meta` 仓库里的目录继续作为过渡期孵化副本存在。
 
 用途：
 从 `yitang.top` 课程页面抓取内容，重组为结构化 Markdown、课程讲义风格文档，以及基于课程内容生成可复用 AI prompt/spec。
 
+当前进度：
+1. 已创建独立目录
+2. 已初始化独立 git 仓库
+3. 已补 `README.md`、`tests/`、`examples/`
+
 建议下一步：
-1. 迁出为独立仓库 `yitang-course-capture`
-2. 为该独立仓库补 `README.md`、`tests/`、`examples/`
-3. 完成独立 git 生命周期管理
+1. 在独立仓库中完成首个提交
+2. 连接 GitHub / Codeup 远端
+3. 决定何时删除或冻结 `meta` 仓库中的孵化副本
 
 ## Planned
 
