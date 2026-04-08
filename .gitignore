@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+.claude/
+.contact/
+.crops/
+.pages/
+.tmp_pdf_extract/
+
+captures/
+skills/*/captures/
+skills/*/scripts/__pycache__/
+skills/*/assets/key-images/*
+!skills/*/assets/key-images/.gitkeep

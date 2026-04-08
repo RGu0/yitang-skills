@@ -1,0 +1,39 @@
+---
+name: replace_me_skill_name
+description: Describe exactly when this skill should be used, what inputs it expects, and what outcome it should produce.
+---
+
+# Skill Title
+
+## Use This Skill When
+
+1. The user is asking for a repeatable workflow in this domain
+2. The task benefits from bundled references or scripts
+3. A normal one-off prompt would be less reliable
+
+## Goal
+
+State the concrete deliverable this skill should produce.
+
+## Workflow
+
+### 1. Clarify the task shape
+
+List the first checks or classification steps.
+
+### 2. Execute the core process
+
+Describe the main procedural steps.
+
+### 3. Produce the output
+
+Describe what a good final output must contain.
+
+## Bundled Resources
+
+1. `agents/openai.yaml`
+2. `references/`
+3. `scripts/`
+4. `assets/`
+
+Only mention the resources that this skill actually needs.

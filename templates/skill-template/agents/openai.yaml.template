@@ -1,0 +1,4 @@
+version: 1
+display_name: Replace Me
+short_description: One-line description of the skill
+default_prompt: Describe the default task this skill should perform.

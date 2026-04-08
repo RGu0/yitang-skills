@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__/
+*.pyc
+captures/
+check_page.js
+check_page.scpt
