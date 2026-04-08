@@ -1,0 +1,27 @@
+# Skill Repo Name
+
+## Purpose
+
+Describe what this standalone skill does and when it should be used.
+
+## Structure
+
+```text
+.
+├── README.md
+├── SKILL.md
+├── agents/
+├── references/
+├── scripts/
+├── tests/
+├── examples/
+└── .gitignore
+```
+
+## Development
+
+Document how to run this skill locally, how to validate it, and how to update references or scripts.
+
+## Testing
+
+List the canonical test or verification entrypoints for this skill.

@@ -1,52 +1,63 @@
-# Yitang Skills
+# Yitang Skills Meta
 
-这个仓库用于沉淀“一堂课程 -> 可复用 Codex Skill”的全过程产物。
+这个仓库现在作为 `meta` 仓库使用，用来管理“一堂课程 -> 独立 skill 仓库”的体系，而不是长期承载所有 skill 的实现代码。
 
-当前目标不是只维护单个 skill，而是建立一个可以持续扩展的技能源仓库：
+## 这个仓库负责什么
 
-1. 每门课程或方法论对应一个独立 skill
-2. 每个 skill 保持自包含，便于单独迭代和迁移
-3. 项目根目录负责统一规范、模板和索引
+1. 维护整体架构和约定
+2. 提供新 skill 的起始模板
+3. 记录技能索引和仓库链接
+4. 承载少量过渡期孵化内容
 
-## 当前结构
+## 这个仓库不负责什么
+
+1. 不建议长期存放所有 skill 的完整代码
+2. 不建议让所有 skill 共用一个 git 历史
+3. 不建议在这里统一跑所有 skill 的测试和依赖
+
+## 推荐结构
 
 ```text
 yitang-skills/
 ├── README.md
-├── .gitignore
 ├── docs/
-│   ├── project-architecture.md
-│   └── adding-a-skill.md
-├── skills/
-│   ├── README.md
-│   └── yitang-course-capture/
 ├── templates/
-│   └── skill-template/
-└── .contact/ .crops/ .pages/ ...
+└── skills/
+    └── README.md
 ```
 
-说明：
+建议在工作区中这样组织：
 
-1. `skills/` 放实际可用的 skill
-2. `templates/skill-template/` 放新 skill 的起始模板
-3. `docs/` 放项目级说明，不把这类说明塞进 skill 本体
-4. `.contact`、`.crops`、`.pages`、`.tmp_pdf_extract` 等目录视为本地工作产物，不纳入版本管理
+```text
+workspace/
+├── yitang-skills/               # meta 仓库
+├── yitang-course-capture/       # skill 独立仓库
+├── yitang-demand-decomposition/ # skill 独立仓库
+└── ...
+```
 
-## 当前 Skills
+## 当前状态
 
-见 [skills/README.md](/Users/ruiguo/Documents/0.%20AI/yitang-skills/skills/README.md)。
+当前仓库里仍保留了一个过渡期目录：
 
-## 推荐工作流
+- [skills/yitang-course-capture](/Users/ruiguo/Documents/0.%20AI/yitang-skills/skills/yitang-course-capture)
 
-1. 先在 `templates/skill-template/` 复制一份新目录到 `skills/<skill-name>/`
-2. 编写该 skill 的 `SKILL.md`、`agents/openai.yaml`、`references/` 与必要脚本
-3. 用真实课程页面验证 skill 是否能稳定产出
-4. 更新 [skills/README.md](/Users/ruiguo/Documents/0.%20AI/yitang-skills/skills/README.md) 和相关项目文档
-5. 提交并同步到 GitHub
+它现在应被视为：
 
-## 设计原则
+1. 第一个 skill 的孵化副本
+2. 后续拆分为独立仓库前的过渡内容
 
-1. Skill 内只放 AI 执行任务真正需要的文件
-2. 项目级规范和协作说明放在仓库根目录
-3. 优先让目录结构支持未来 5 个、10 个甚至更多课程 skill 并存
-4. 每个 skill 都应该能被单独复制、安装、测试和迭代
+不是长期推荐的最终形态。
+
+## 下一步推荐
+
+1. 把 `yitang-course-capture` 拆成独立仓库
+2. 在当前仓库里只保留索引、模板和规范
+3. 后续每个新 skill 都直接按独立仓库方式创建
+
+## 相关文档
+
+1. [docs/project-architecture.md](/Users/ruiguo/Documents/0.%20AI/yitang-skills/docs/project-architecture.md)
+2. [docs/adding-a-skill.md](/Users/ruiguo/Documents/0.%20AI/yitang-skills/docs/adding-a-skill.md)
+3. [skills/README.md](/Users/ruiguo/Documents/0.%20AI/yitang-skills/skills/README.md)
+4. [templates/skill-template](/Users/ruiguo/Documents/0.%20AI/yitang-skills/templates/skill-template)

@@ -2,39 +2,63 @@
 
 ## 目标
 
-新增 skill 时，默认要做到两件事：
+新增 skill 时，默认目标不是“把它塞进当前仓库”，而是：
 
-1. 让这个 skill 能独立工作
-2. 让这个 skill 能无缝并入当前仓库
+1. 先把 skill 做成独立工作单元
+2. 再把它登记到 `meta` 仓库
 
-## 标准步骤
+## 标准流程
 
-1. 复制 `templates/skill-template/` 到 `skills/<new-skill-name>/`
-2. 修改 `SKILL.md.template` 为正式 `SKILL.md`
-3. 修改 `agents/openai.yaml.template` 为正式 `agents/openai.yaml`
-4. 补充 `references/` 中真正需要的参考资料
-5. 只在确实需要稳定执行逻辑时添加 `scripts/`
-6. 更新 [skills/README.md](/Users/ruiguo/Documents/0.%20AI/yitang-skills/skills/README.md)
-7. 用真实任务验证一次输出质量
+1. 复制 `templates/skill-template/` 作为新 skill 的起点
+2. 在独立目录中完成 `SKILL.md`、`agents/openai.yaml`、`references/`、`scripts/`
+3. 增加该 skill 自己的 `README.md`、`tests/`、`examples/`
+4. 在该 skill 目录里单独初始化 git 仓库
+5. 单独连接 GitHub / Codeup 等远端
+6. 验证这个 skill 能独立开发、独立测试、独立提交
+7. 最后回到本仓库更新 [skills/README.md](/Users/ruiguo/Documents/0.%20AI/yitang-skills/skills/README.md)
+
+## 建议的独立 skill 仓库结构
+
+```text
+<skill-repo>/
+├── README.md
+├── SKILL.md
+├── agents/
+│   └── openai.yaml
+├── references/
+├── scripts/
+├── tests/
+├── examples/
+└── .gitignore
+```
+
+## 本仓库中的职责
+
+本仓库只负责：
+
+1. 提供模板
+2. 维护技能索引
+3. 记录命名规范和开发约定
+
+本仓库不负责：
+
+1. 长期保存所有 skill 的完整实现
+2. 为所有 skill 共用同一个 git 历史
+3. 统一承载所有测试和依赖
 
 ## 质量门槛
 
-一个新 skill 至少应满足：
+一个可登记到 meta 仓库的 skill，至少应满足：
 
-1. 触发描述明确，知道什么时候该用它
-2. 工作流足够清楚，不依赖口头记忆
-3. 参考资料按需加载，不把大段说明堆进 `SKILL.md`
-4. 脚本只有在可重复、易出错或强依赖环境时才加入
-5. 至少有一个真实使用场景验证过
+1. 触发条件明确
+2. 输出目标明确
+3. 有独立测试或样例验证
+4. 有独立 git 仓库
+5. 可以不依赖本仓库而独立工作
 
 ## 常见错误
 
-1. 把项目级说明写进 skill 内部
-2. 在 skill 里堆很多对 AI 没帮助的 README 或 changelog
-3. `SKILL.md` 过长，导致真正执行时上下文浪费
-4. 目录命名、人类显示名、frontmatter 名称三者混乱
-5. 还没验证真实案例就提交
-
-## 建议节奏
-
-先让 skill 能工作，再补模板化和抽象；不要一开始就把多个课程揉进一个巨型 skill。
+1. 还没独立成仓库，就先把大量实现塞进 meta 仓库
+2. 把人类文档和 AI 执行文档混在一起
+3. 没有 `tests/` 或 `examples/` 就开始扩张
+4. 用一个大仓库去承载多个不相关 skill 的实验提交

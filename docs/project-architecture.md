@@ -2,80 +2,84 @@
 
 ## 定位
 
-`yitang-skills` 是一个多 skill 源仓库，不是某一个单独 skill 的工作目录。
+`yitang-skills` 现在是一个 `meta` 仓库，不再承担“长期保存所有 skill 实体代码”的职责。
 
-它解决三个问题：
+这个仓库主要负责四类内容：
 
-1. 如何把不同课程拆成独立 skill
-2. 如何让这些 skill 共享一致的组织方式
-3. 如何让后续维护、同步和扩展成本保持可控
+1. 技能体系的总说明与路线图
+2. 新 skill 的模板与规范
+3. 各独立 skill 仓库的索引
+4. 尚未拆分完成的本地孵化内容
 
-## 顶层分层
+## 推荐仓库模型
 
-### `skills/`
+推荐使用：
 
-放实际 skill，每个子目录都应该是一个可独立维护的技能单元。
+1. 一个 `meta` 仓库
+2. 多个独立 skill 仓库
 
-单个 skill 内建议固定为：
+建议工作区形态：
 
 ```text
-<skill-name>/
-├── SKILL.md
-├── agents/openai.yaml
-├── references/
-├── scripts/
-└── assets/
+workspace/
+├── yitang-skills/                  # meta 仓库
+├── yitang-course-capture/          # 独立 repo
+├── yitang-demand-decomposition/    # 独立 repo
+└── yitang-sales-script-builder/    # 独立 repo
 ```
 
-### `templates/`
-
-放新的 skill 起始模板，避免重复从零搭建。
+## 这个 meta 仓库里应该有什么
 
 ### `docs/`
 
-放项目层面的规范、架构说明、操作约定。这里的内容服务于“维护这个仓库的人”，不是服务于 skill 运行时本身。
+项目级文档，只服务于维护者和未来的协作者。
 
-## 为什么采用这种结构
+### `templates/`
 
-### 1. 避免单个 skill 绑架整个仓库结构
+独立 skill 仓库的起始模板。
 
-最初仓库只有 `yitang-course-capture/`，并且 `.git` 也初始化在该目录中。这个结构只适合单 skill 阶段，不适合继续扩展。
+### `skills/README.md`
 
-### 2. 让 skill 成为清晰的一级对象
+技能索引，不是长期承载所有 skill 代码的主目录。
 
-未来你要做的是：
+### `skills/<skill-name>/`
 
-1. 某门课程的网页抓取 skill
-2. 某门课程的提示词拆解 skill
-3. 某门课程的方法论执行 skill
-4. 某个专题的分析或生成 skill
+只作为过渡期的本地孵化目录使用。一个 skill 一旦稳定，应该迁移成独立 repo。
 
-把它们统一放在 `skills/` 下，后续维护成本最低。
+## 为什么要改成 meta 仓库
 
-### 3. 分离“运行文件”和“项目说明”
+### 1. 独立开发边界更清楚
 
-Skill 本体应该保持精简，只放 AI 真正要加载、执行、参考的内容。项目规则、架构说明、贡献流程应该留在仓库根目录。
+每个 skill 都应该有自己的：
 
-## 命名约定
+1. git 历史
+2. 分支策略
+3. 测试目录
+4. 发布节奏
+5. 依赖约束
 
-1. skill 目录统一用 kebab-case，例如 `yitang-course-capture`
-2. `SKILL.md` frontmatter 的 `name` 用 snake_case，例如 `yitang_course_capture`
-3. `agents/openai.yaml` 的 `display_name` 用面向人的标题
+### 2. 避免 monorepo 式耦合
 
-## 演进建议
+如果把所有 skill 长期放在一个仓库里，后面很容易出现：
 
-后续新增 skill 时，优先按“能力边界”拆，而不是按文件类型拆。
+1. 实验性提交互相污染
+2. 测试脚本互相干扰
+3. 发布和同步边界不清
+4. 一个 skill 的重构拖累其他 skill
 
-好的拆分方式：
+### 3. 让 meta 仓库保持轻量
 
-1. `yitang-course-capture`
-2. `yitang-demand-decomposition`
-3. `yitang-sales-script-builder`
+`meta` 仓库最重要的是规范、模板、索引，而不是承载大量运行时代码和样例产物。
 
-不建议的拆分方式：
+## 演进规则
 
-1. `all-prompts`
-2. `all-scripts`
-3. `all-course-notes`
+后续新增 skill 时，按下面顺序做：
 
-前者更便于安装、测试、迭代和复用。
+1. 先在 `templates/skill-template/` 基础上搭建新 skill
+2. 在独立目录中开发和测试
+3. 单独初始化 git 仓库并连接远端
+4. 只在本仓库的 [skills/README.md](/Users/ruiguo/Documents/0.%20AI/yitang-skills/skills/README.md) 中登记
+
+## 当前过渡状态
+
+`yitang-course-capture` 目前仍保留在本仓库中，作为第一个 skill 的本地孵化副本。它的长期目标是迁移为独立仓库，而不是继续与其他未来 skill 共用同一个 git 历史。
